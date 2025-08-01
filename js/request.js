@@ -1,5 +1,5 @@
 // api
-const API = "https://randomuser.me/api/?results=9";
+export const API = "https://randomuser.me/api/?results=9";
 
 // for leader
 const overlay = document.getElementById("overlay");
@@ -16,7 +16,7 @@ const loaderToggle = (toggle) => {
 
 //request promise
 
-const getData = (resource) => {
+export const getData = (resource) => {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
 
@@ -37,16 +37,3 @@ const getData = (resource) => {
     request.send();
   });
 };
-
-// load
-const reload = () => {
-  getData(API)
-    .then((data) => {
-      updatedUI(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-document.addEventListener("DOMContentLoaded", reload());
